@@ -7,17 +7,20 @@ from flask import Flask
 from flask import render_template
 import json
 
-import os
-import psycopg2
-import urlparse
-urlparse.uses_netloc.append("postgres")
-url = urlparse.urlparse("postgres://robertcrozier:password@localhost:5432/postgres")
-conn = psycopg2.connect(database=url.path[1:],
-user=url.username,
-password=url.password,
-host=url.hostname,
-port=url.port
-)
+dataFrom = "postgres"
+
+if dataFrom =="postgres":
+  import os
+  import psycopg2
+  import urlparse
+  urlparse.uses_netloc.append("postgres")
+  url = urlparse.urlparse("postgres://robertcrozier:password@localhost:5432/postgres")
+  conn = psycopg2.connect(database=url.path[1:],
+  user=url.username,
+  password=url.password,
+  host=url.hostname,
+  port=url.port
+  )
 
 
 
@@ -61,9 +64,11 @@ def index():
 @app.route("/data")
 def get_data():
     #FLAT FILE METHOD:
-    #df = pd.read_csv(data_path + 'events.csv')
+    if dataFrom =="csv":
+      df = pd.read_csv(data_path + 'events.csv')
     #POSTGRES METHOD: 
-    df = pd.read_sql_query("select * from iot;;", conn)
+    if dataFrom =="postgres":
+      df = pd.read_sql_query("select * from iot;", conn)
 
     #
     #Get n_samples records
