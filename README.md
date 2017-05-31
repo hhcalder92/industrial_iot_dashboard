@@ -25,4 +25,4 @@ pip install flask shapely
 
 NOTE: events data is from the dataset ( events.csv) from [Kaggle](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data). You need to create a Kaggle account and agree to the competition rules to download the data.
 
-#Visit my Blog : http://adilmoujahid.com
+
