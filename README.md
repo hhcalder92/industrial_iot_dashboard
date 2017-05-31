@@ -11,7 +11,7 @@ The easiest way to install ```Pandas``` is to install it as part of the [Anacond
 You can install ```Flask``` and ```Shapely``` using ```pip```.
 
 ```
-pip install flask shapely
+pip install flask shapely psycopg2 urlparse
 ```
 
 #How to run the code
