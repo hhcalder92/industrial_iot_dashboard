@@ -49,8 +49,8 @@ def get_location(longitude, latitude, provinces_json):
     return 'other'
 
 
-with open(data_path + '/geojson/china_provinces_en.json') as data_file:    
-    provinces_json = json.load(data_file)
+#with open(data_path + '/geojson/china_provinces_en.json') as data_file:    
+#    provinces_json = json.load(data_file)
 
 app = Flask(__name__)
 
