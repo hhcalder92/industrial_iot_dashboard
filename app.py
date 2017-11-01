@@ -14,7 +14,7 @@ if dataFrom =="postgres":
   import psycopg2
   import urlparse
   urlparse.uses_netloc.append("postgres")
-  url = urlparse.urlparse("postgres://robertcrozier:password@localhost:5432/postgres")
+  url = urlparse.urlparse("postgres://robertcrozier:password@db:5432/postgres")
   conn = psycopg2.connect(database=url.path[1:],
   user=url.username,
   password=url.password,
