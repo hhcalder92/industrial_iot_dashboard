@@ -33,7 +33,7 @@ iot3 = iot2 %>% select(timestamp, longitude, latitude, phone_brand_en, gender, a
 library(RPostgreSQL)
 drv <- dbDriver("PostgreSQL")
 con <- dbConnect(drv, dbname = "postgres",
-                 host = "localhost", port = 5432,
+                 host = "db", port = 5432,
                  user = "robertcrozier", password = 'password')
 
 dbWriteTable(con, "iot", 
